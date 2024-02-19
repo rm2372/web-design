@@ -1,0 +1,107 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    border-radius: 5px;
+    background-color: #3498db;
+    transition: background-color 0.3s;
+}
+
+.navbar a:hover {
+    background-color: #2980b9;
+}
+
+.inline-css-heading {
+    font-size: 2em;
+    color: #2c3e50;
+}
+
+.main-content {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.about-section,
+.services-section {
+    flex: 1;
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 40px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.about-section h2,
+.services-section h2 {
+    color: #2ecc71;
+}
+
+blockquote {
+    color: #7f8c8d;
+}
+
+.services-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.services-section li {
+    background-color: #e74c3c;
+    color: white;
+    padding: 10px;
+    margin: 5px 0;
+    border-radius: 5px;
+}
+
+.portfolio-section {
+    flex: 1;
+    background-color: #f8f8f8;
+    text-align: center;
+    padding: 40px;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.portfolio-section h2 {
+    color: #2ecc71;
+}
+
+.portfolio-item {
+    margin-bottom: 20px;
+}
+
+.portfolio-item img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.portfolio-item p {
+    color: #e74c3c;
+}
+
+.contact-section {
+    flex: 1;
+    background-color:#7f8c8d
+}
