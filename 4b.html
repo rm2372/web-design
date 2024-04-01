@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Salary Calculator</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f2f2f2;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      h1 {
+        color: #333;
+      }
+
+      form {
+        background-color: #fff;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        margin-top: 20px;
+        width: 300px;
+        text-align: center;
+      }
+
+      label {
+        display: block;
+        margin: 10px 0 5px;
+        color: #555;
+      }
+
+      input {
+        width: calc(100% - 16px);
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      button {
+        background-color: #4caf50;
+        color: #fff;
+        padding: 10px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      h2 {
+        color: #333;
+        margin-top: 20px;
+      }
+
+      table {
+        border-collapse: collapse;
+        width: 100%;
+        margin-top: 10px;
+      }
+
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+        text-align: left;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Salary Calculator</h1>
+
+    <form id="salaryForm">
+      <label for="employeeName">Employee Name:</label>
+      <input type="text" id="employeeName" required /><br /><br />
+
+      <label for="employeeID">Employee ID:</label>
+      <input type="text" id="employeeID" required /><br /><br />
+
+      <label for="basicPay">Basic Pay:</label>
+      <input type="number" id="basicPay" required /><br /><br />
+
+      <button type="submit">Calculate</button>
+    </form>
+
+    <h2>Salary Report</h2>
+    <table id="salaryReport">
+      <tr>
+        <th>Field</th>
+        <th>Value</th>
+      </tr>
+      <tr>
+        <td>Employee Name</td>
+        <td id="employeeNameValue"></td>
+      </tr>
+      <tr>
+        <td>Employee ID</td>
+        <td id="employeeIDValue"></td>
+      </tr>
+      <tr>
+        <td>Basic Pay</td>
+        <td id="basicPayValue"></td>
+      </tr>
+      <tr>
+        <td>DA</td>
+        <td id="daValue"></td>
+      </tr>
+      <tr>
+        <td>HRA</td>
+        <td id="hraValue"></td>
+      </tr>
+      <tr>
+        <td>PF</td>
+        <td id="pfValue"></td>
+      </tr>
+      <tr>
+        <td>TAX</td>
+        <td id="taxValue"></td>
+      </tr>
+      <tr>
+        <td>Gross Pay</td>
+        <td id="grossPayValue"></td>
+      </tr>
+      <tr>
+        <td>Deduction</td>
+        <td id="deductionValue"></td>
+      </tr>
+      <tr>
+        <td>Net Pay</td>
+        <td id="netPayValue"></td>
+      </tr>
+    </table>
+
+    <script>
+      document
+        .getElementById("salaryForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+
+          var employeeName = document.getElementById("employeeName").value;
+          var employeeID = document.getElementById("employeeID").value;
+          var basicPay = parseFloat(document.getElementById("basicPay").value);
+
+          var da = basicPay * 0.6;
+          var hra = basicPay * 0.4;
+          var pf = basicPay * 0.13;
+          var tax = basicPay * 0.2;
+          var grossPay = basicPay + da + hra;
+          var deduction = pf + tax;
+          var netPay = grossPay - deduction;
+
+          document.getElementById("employeeNameValue").innerHTML = employeeName;
+          document.getElementById("employeeIDValue").innerHTML = employeeID;
+          document.getElementById("basicPayValue").innerHTML = basicPay;
+          document.getElementById("daValue").innerHTML = da;
+          document.getElementById("hraValue").innerHTML = hra;
+          document.getElementById("pfValue").innerHTML = pf;
+          document.getElementById("taxValue").innerHTML = tax;
+          document.getElementById("grossPayValue").innerHTML = grossPay;
+          document.getElementById("deductionValue").innerHTML = deduction;
+          document.getElementById("netPayValue").innerHTML = netPay;
+
+          document.getElementById("salaryForm").reset();
+        });
+    </script>
+  </body>
+</html>
