@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Job Portal Registration</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background-color: #f4f4f4;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      form {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        width: 300px;
+        text-align: center;
+      }
+
+      h2 {
+        color: #333;
+      }
+
+      label {
+        display: block;
+        margin: 10px 0 5px;
+        color: #555;
+      }
+
+      input {
+        width: calc(100% - 16px);
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+      }
+
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .error {
+        color: red;
+        margin-top: 5px;
+        display: block;
+        text-align: left;
+      }
+
+      .success-popup {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #4caf50;
+        color: #fff;
+        padding: 15px;
+        border-radius: 8px;
+        display: none;
+        z-index: 1000;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="registrationForm" onsubmit="return validateForm()">
+      <h2>Job Portal Registration</h2>
+
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required />
+      <span id="nameError" class="error"></span>
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+      <span id="passwordError" class="error"></span>
+
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required />
+      <span id="emailError" class="error"></span>
+
+      <label for="phone">Phone Number:</label>
+      <input type="text" id="phone" name="phone" required />
+      <span id="phoneError" class="error"></span>
+
+      <label for="qualification">Education Qualification:</label>
+      <input type="text" id="qualification" name="qualification" required />
+
+      <input type="submit" value="Register" />
+    </form>
+
+    <div id="successPopup" class="success-popup">
+      Registration successful! Thank you.
+    </div>
+
+    <script>
+      function validateForm() {
+        // Name validation
+        var name = document.getElementById("name").value;
+        if (!/^[a-zA-Z ]{6,}$/.test(name)) {
+          document.getElementById("nameError").innerText =
+            "Name should contain alphabets and be at least 6 characters long.";
+          return false;
+        }
+
+        // Password validation
+        var password = document.getElementById("password").value;
+        if (password.length < 6) {
+          document.getElementById("passwordError").innerText =
+            "Password should be at least 6 characters long.";
+          return false;
+        }
+
+        // Email validation
+        var email = document.getElementById("email").value;
+        if (!/^\S+@\S+\.\S+$/.test(email)) {
+          document.getElementById("emailError").innerText =
+            "Invalid email address.";
+          return false;
+        }
+
+        // Phone number validation
+        var phone = document.getElementById("phone").value;
+        if (!/^\d{10}$/.test(phone)) {
+          document.getElementById("phoneError").innerText =
+            "Phone number should contain 10 digits only.";
+          return false;
+        }
+
+        // If all validations pass, display the success popup
+        document.getElementById("successPopup").style.display = "block";
+
+        // Prevent the form from submitting (for demonstration purposes)
+        return false;
+      }
+    </script>
+  </body>
+</html>
