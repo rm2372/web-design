@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<car>
+    <make>Toyota</make>
+    <model>Corolla</model>
+    <year>2022</year>
+    <color>Black</color>
+</car>

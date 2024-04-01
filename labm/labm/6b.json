@@ -1,0 +1,26 @@
+[
+  {
+    "model_number": "M123",
+    "name": "iPhone 15",
+    "price": "$999",
+    "image": "iphone15.png"
+  },
+  {
+    "model_number": "G456",
+    "name": "Samsung Galaxy S24",
+    "price": "$1199",
+    "image": "s24.png"
+  },
+  {
+    "model_number": "P789",
+    "name": "Google Pixel 8 Pro",
+    "price": "$699",
+    "image": "pixel8.png"
+  },
+  {
+    "model_number": "N101",
+    "name": "OnePlus 8 Pro",
+    "price": "$799",
+    "image": "oneplus.png"
+  }
+]

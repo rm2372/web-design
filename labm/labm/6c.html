@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Car Information</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 50%;
+        margin: 20px auto;
+      }
+
+      table,
+      th,
+      td {
+        border: 1px solid black;
+        padding: 8px;
+      }
+
+      th {
+        background-color: #f2f2f2;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="car-details"></div>
+
+    <script>
+      window.onload = function () {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            var xmlDoc = this.responseXML;
+            var carDetails = "<h2>Car Information</h2>";
+            carDetails += "<table>";
+            carDetails +=
+              "<tr><th>Make</th><td>" +
+              xmlDoc.getElementsByTagName("make")[0].childNodes[0].nodeValue +
+              "</td></tr>";
+            carDetails +=
+              "<tr><th>Model</th><td>" +
+              xmlDoc.getElementsByTagName("model")[0].childNodes[0].nodeValue +
+              "</td></tr>";
+            carDetails +=
+              "<tr><th>Year</th><td>" +
+              xmlDoc.getElementsByTagName("year")[0].childNodes[0].nodeValue +
+              "</td></tr>";
+            carDetails +=
+              "<tr><th>Color</th><td>" +
+              xmlDoc.getElementsByTagName("color")[0].childNodes[0].nodeValue +
+              "</td></tr>";
+            carDetails += "</table>";
+            document.getElementById("car-details").innerHTML = carDetails;
+          }
+        };
+        xhttp.open("GET", "6c.xml", true);
+        xhttp.send();
+      };
+    </script>
+  </body>
+</html>

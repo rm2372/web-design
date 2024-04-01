@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Message from Text File</title>
+  </head>
+  <body>
+    <div id="message-container">
+      <p id="message">Loading message...</p>
+    </div>
+
+    <script>
+      var xhttp = new XMLHttpRequest();
+
+      xhttp.onreadystatechange = function () {
+        if (this.readyState == 4) {
+          if (this.status == 200) {
+            document.getElementById("message").innerHTML = this.responseText;
+          } else {
+            document.getElementById("message").innerHTML =
+              "Failed to load message.";
+          }
+        }
+      };
+
+      xhttp.open("GET", "message.txt", true);
+
+      xhttp.send();
+    </script>
+  </body>
+</html>
